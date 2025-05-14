@@ -32,7 +32,7 @@ function App() {
           handleDeleteTask={handleDeleteTask}
         />
         {/* Footer */}
-        <Footer />
+        <Footer tasks={tasks} />
       </div>
     </>
   );
