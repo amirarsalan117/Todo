@@ -1,4 +1,4 @@
-export const Task = () => {
+export const Task = ({ task }) => {
   return (
     <li className="task-item">
       <div className="task-controls">
@@ -8,11 +8,11 @@ export const Task = () => {
         </button>
       </div>
       <div className="task-details">
-        <div className="title">Sample Task</div>
-        <div className="description">This is a sample description.</div>
+        <div className="title">{task.title}</div>
+        <div className="description">{task.description}</div>
         <div className="task-tags">
-          <span className="tag priority-high">High</span>
-          <span className="tag group-work">Work</span>
+          <span className="tag priority-high">{task.priority}</span>
+          <span className="tag group-work">{task.group}</span>
         </div>
       </div>
     </li>
