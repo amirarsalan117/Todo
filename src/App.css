@@ -1,0 +1,182 @@
+/* todo.css */
+
+/* ========== Variables & Resets ========== */
+:root {
+  --bg-page: #f5f6fa;
+  --bg-card: #ffffff;
+  --clr-primary: #2e86de;
+  --clr-danger: #e74c3c;
+  --clr-warning: #f1c40f;
+  --clr-success: #28b463;
+  --clr-text: #333333;
+  --clr-muted: #7f8c8d;
+  --radius: 6px;
+  --spacing: 1rem;
+  --font-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-page);
+  color: var(--clr-text);
+  line-height: 1.5;
+  padding: var(--spacing);
+}
+
+/* ========== Header ========== */
+.header {
+  text-align: center;
+  padding: var(--spacing) 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--clr-primary);
+}
+
+/* ========== Sub-message ========== */
+.message {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  margin-bottom: calc(var(--spacing) * 1.5);
+}
+
+/* ========== Task Entry Form ========== */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing);
+  background-color: var(--bg-card);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: var(--spacing);
+}
+.task-form input[type="text"],
+.task-form textarea,
+.task-form select {
+  flex: 1 1 200px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+.task-form textarea {
+  resize: vertical;
+  min-height: 3rem;
+}
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+.form-actions label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--clr-text);
+}
+.form-actions .btn-delete {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--clr-danger);
+  cursor: pointer;
+}
+
+/* ========== Task List ========== */
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  padding: 0.75rem var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.75rem;
+}
+.task-details {
+  flex: 1;
+  margin-left: var(--spacing);
+}
+.task-details .title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.task-details .description {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+}
+.task-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+  color: #fff;
+}
+.tag.priority-high {
+  background-color: var(--clr-danger);
+}
+.tag.priority-medium {
+  background-color: var(--clr-warning);
+}
+.tag.priority-low {
+  background-color: var(--clr-success);
+}
+/* Example group tags */
+.tag.group-work {
+  background-color: #3498db;
+}
+.tag.group-personal {
+  background-color: #9b59b6;
+}
+.tag.group-other {
+  background-color: #95a5a6;
+}
+
+.task-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.task-controls input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+.task-controls .btn-delete {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--clr-danger);
+  cursor: pointer;
+}
+
+/* ========== Footer ========== */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  margin-top: var(--spacing);
+}
+.footer .done-count {
+  font-weight: bold;
+  color: var(--clr-success);
+}
+.footer .remain-count {
+  font-weight: bold;
+  color: var(--clr-primary);
+}
