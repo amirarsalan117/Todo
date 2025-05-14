@@ -24,9 +24,24 @@ body {
   background-color: var(--bg-page);
   color: var(--clr-text);
   line-height: 1.5;
+  
+  /* New styles to center the app container */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   padding: var(--spacing);
 }
-
+.app-container {
+  margin: 0; /* Reset margin */
+  width: 100%;
+  max-width: 600px; /* adjust to taste */
+  padding: var(--spacing);
+  /* optional visual niceties: */
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 /* ========== Header ========== */
 .header {
   text-align: center;
@@ -67,6 +82,12 @@ body {
 .task-form textarea {
   resize: vertical;
   min-height: 3rem;
+}
+.task-form button {
+  background-color: #e74c3c;
+}
+.task-form button:hover {
+  background-color: red;
 }
 .form-actions {
   display: flex;
@@ -179,4 +200,26 @@ body {
 .footer .remain-count {
   font-weight: bold;
   color: var(--clr-primary);
+}
+
+/* ========== Completed Task Styling ========== */
+
+/* If you add a `done` class on the task-item: */
+.task-item.done {
+  opacity: 0.6; /* dim the whole card */
+}
+.task-item.done .task-details .title,
+.task-item.done .task-details .description {
+  text-decoration: line-through; /* strike-through text */
+  color: var(--clr-muted); /* muted color */
+}
+
+/* Or, using the checkbox state without extra markup: */
+.task-item input[type="checkbox"]:checked ~ .task-details .title,
+.task-item input[type="checkbox"]:checked ~ .task-details .description {
+  text-decoration: line-through;
+  color: var(--clr-muted);
+}
+.task-item input[type="checkbox"]:checked ~ .task-details .tag {
+  opacity: 0.6;
 }

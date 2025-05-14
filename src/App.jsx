@@ -8,6 +8,14 @@ import { useState } from "react";
 import { TasksData } from "./data";
 function App() {
   const [tasks, setTask] = useState(TasksData);
+
+  const onToggleDone = (id, isDone) => {
+    setTask(tasks.map((t) => (t.id === id ? { ...t, done: isDone } : t)));
+  };
+  const handleDeleteTask = (id) => {
+    setTask((prevTask) => prevTask.filter((t) => t.id !== id));
+  };
+
   return (
     <>
       <div className="app-container">
@@ -16,9 +24,13 @@ function App() {
         {/* Sub-message */}
         <SubMessage />
         {/* Task Entry Form */}
-        <AddForm />
+        <AddForm setTask={setTask} tasks={tasks} />
         {/* Task List */}
-        <Tasks tasks={tasks} />
+        <Tasks
+          tasks={tasks}
+          onToggleDone={onToggleDone}
+          handleDeleteTask={handleDeleteTask}
+        />
         {/* Footer */}
         <Footer />
       </div>
